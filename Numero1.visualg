@@ -1,0 +1,57 @@
+algoritmo "Numero1"
+
+var
+  numero1, numero2, resultado, opcao: inteiro
+
+inicio
+  escreval("1 - Somar Números")
+  escreval("2 - Subtrair Números")
+  escreval("3 - Multiplicar Números")
+  escreval("4 - Dividir Números")
+  escreval("5 - Comparar Números")
+  leia(opcao)
+  escolha opcao
+    caso 1
+      escreval("Digite um número: ")
+      leia(numero1)
+      escreval("Digite outro número: ")
+      leia(numero2)
+      resultado <- numero1 + numero2
+      escreval("A soma de ", numero1, " e ", numero2, " é igual a ", resultado)
+    caso 2
+      escreval("Digite um número: ")
+      leia(numero1)
+      escreval("Digite outro número: ")
+      leia(numero2)
+      resultado <- numero1 - numero2
+      escreval("A subtração de ", numero1, " e ", numero2, " é igual a ", resultado)
+    caso 3
+      escreval("Digite um número: ")
+      leia(numero1)
+      escreval("Digite outro número: ")
+      leia(numero2)
+      resultado <- numero1 * numero2
+      escreval("A multiplicação de ", numero1, " e ", numero2, " é igual a ", resultado)
+    caso 4
+      escreval("Digite um número: ")
+      leia(numero1)
+      escreval("Digite outro número: ")
+      leia(numero2)
+      resultado <- numero1 / numero2
+      escreval("A divisão de ", numero1, " e ", numero2, " é igual a ", resultado)
+    caso 5
+      escreval("Digite um número: ")
+      leia(numero1)
+      escreval("Digite outro número: ")
+      leia(numero2)
+      se (numero1 > numero2) entao
+        escreval("O número ", numero1, " é maior que o número ", numero2, ".")
+      senao
+        se (numero1 < numero2) entao
+          escreval("O número ", numero1, " é menor que o número ", numero2, ".")
+        senao
+          escreval("O número ", numero1, " é igual ao número ", numero2, ".")
+        fimse
+      fimse
+  fimescolha    
+fimalgoritmo

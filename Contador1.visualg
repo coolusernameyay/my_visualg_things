@@ -1,0 +1,24 @@
+algoritmo "Contador1"
+
+var
+  contador, numero, maior, menor, soma: inteiro
+inicio
+  contador <- 1
+  menor <- 99
+  repita
+    escreval("Digite o ", contador,  "o. número: ")
+    leia(numero)
+    contador <- contador + 1
+    soma <- soma + numero
+    se (numero > maior) entao
+      maior <- numero
+    fimse
+    se (menor > numero) entao
+      menor <- numero
+    fimse
+  ate (contador > 5)
+  escreval("A soma de todos os números foi ", soma)
+  escreval("O maior número digitado foi ", maior)
+  escreval("O menor número digitado foi ", menor)
+  escreval("O último número digitado foi ", numero)
+fimalgoritmo
