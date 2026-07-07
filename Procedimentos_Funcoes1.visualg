@@ -1,0 +1,84 @@
+algoritmo "Procedimentos_Funcoes1"
+
+var
+  opcao: inteiro
+  palavra1, palavra2, resposta, enter: caractere
+
+procedimento digite_uma_palavra()
+inicio
+  escreval("Digite uma palavra: ")
+  leia(palavra1)
+  escreval("Digite outra palavra: ")
+  leia(palavra2)
+fimprocedimento
+
+procedimento enter_procedimento()
+inicio
+  escreval("Enter para voltar.")
+  leia(enter)
+  limpatela
+fimprocedimento
+
+procedimento comparar_palavras()
+inicio
+  limpatela
+  digite_uma_palavra()
+  resposta <- comparar_palavras_funcao(palavra1, palavra2, resposta)
+  se (resposta = "maior") ou (resposta = "menor") entao
+    escreval("A palavra '", palavra1, "' é ", resposta, " do que a palavra '", palavra2, "'")
+  senao
+    escreval("A palavra '", palavra1, "' é ", resposta, " a palavra '", palavra2, "'")
+  fimse
+  enter_procedimento()
+fimprocedimento
+
+funcao comparar_palavras_funcao(P1, P2, R: caractere): caractere
+inicio
+  se (P1 > P2) entao
+    R <- "maior"
+  senao
+    se (P1 < P2) entao
+      R <- "menor"
+    senao
+      R <- "igual"
+    fimse
+  fimse
+  retorne R
+fimfuncao
+
+procedimento juntar_palavras()
+inicio
+  limpatela
+  digite_uma_palavra()
+  resposta <- juntar_palavras_funcao(palavra1, palavra2, resposta)
+  escreval("Essas duas palavras juntas são '", resposta, "'")
+  enter_procedimento()
+fimprocedimento
+
+funcao juntar_palavras_funcao(P1, P2, R: caractere): caractere
+inicio
+  R <- P1 + P2
+  retorne R
+fimfuncao
+
+inicio
+  repita
+    escreval("1 - Comparar Palavras")
+    escreval("2 - Juntar Palavras")
+    escreval("3 - Sair")
+    escreval("Opção: ")
+    leia(opcao)
+    escolha opcao
+      caso 1
+        comparar_palavras()
+      caso 2
+        juntar_palavras()
+      caso 3
+        limpatela
+        escreval("Saindo...")
+      outrocaso 
+        limpatela
+        escreval("Opção inválida!")
+    fimescolha
+  ate (opcao = 3)
+fimalgoritmo
