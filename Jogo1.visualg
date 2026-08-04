@@ -1,0 +1,334 @@
+algoritmo "Trabalho"
+
+var
+  escreva_letras, desativar: caractere
+  titulo: vetor[1..5] de caractere
+  comandos: vetor[1..6] de caractere
+  moedas, opcao: inteiro
+  textocomprado, limparcomprado, comandocomprado: logico
+
+procedimento enter()
+  inicio
+    escreval("Enter para voltar. ")
+    pausa
+fimprocedimento
+
+procedimento loja()
+  inicio
+    repita
+      limpatela
+      escreval("--------- ", titulo[3], " ---------")
+      escreval("[1] Limpar Automaticamente - 100")
+      escreval("[2] Personalizar Texto - 150")
+      escreval("[3] Personalizar Comandos - 250")
+      escreval("[4] Sair")
+      escreval("Opção: ")
+      leia(opcao)
+      escolha opcao
+        caso 1
+          se (moedas >= 100) e (limparcomprado = falso) entao
+            moedas <- moedas - 100
+            limparcomprado <- verdadeiro
+            escreval("Você comprou: Limpar Automaticamente")
+            escreval("Moedas restantes: ", moedas)
+            escreval("Agora vai limpar a tela automaticamente toda vez que você apertar ENTER depois de digitar!")
+            escreval("Caso use o comando 'LIMPAR', você vai poder desativar ou ativar a limpeza automatica.")
+            enter()
+          senao
+            se (limparcomprado = verdadeiro) entao
+              escreval("Você já tem esse item comprado! Enter para voltar. ")
+              pausa
+            senao
+              escreval("Moedas insuficientes! Enter para voltar. ")
+              pausa
+            fimse
+          fimse
+        caso 2
+          se (moedas >= 150) e (textocomprado = falso) entao
+            moedas <- moedas - 150
+            textocomprado <- verdadeiro
+            escreval("Você comprou: Personalizar Texto")
+            escreval("Moedas restantes: ", moedas)
+            escreval("Digite 'TEXTO' para personalizar.")
+            enter()
+          senao
+            se (textocomprado = 1) entao
+              escreval("Você já tem esse item comprado! Enter para voltar. ")
+              pausa
+            senao
+              escreval("Moedas insuficientes! Enter para voltar. ")
+              pausa
+            fimse
+          fimse
+        caso 3
+          se (moedas >= 250) e (comandocomprado = falso) entao
+            moedas <- moedas - 250
+            comandocomprado <- verdadeiro
+            escreval("Você comprou: Personalizar Comandos")
+            escreval("Moedas restantes: ", moedas)
+            escreval("Digite 'COMANDO' para personalizar.")
+            enter()
+          senao
+            se (comandocomprado = verdadeiro) entao
+              escreval("Você já tem esse item comprado! Enter para voltar. ")
+              pausa
+            senao
+              escreval("Moedas insuficientes! Enter para voltar. ")
+              pausa
+            fimse
+          fimse
+      fimescolha
+      limpatela
+    ate (opcao = 1 ou opcao = 2 ou opcao = 3 ou opcao = 4)
+fimprocedimento
+
+procedimento trabalho()
+  inicio
+    limpatela
+    escreval("------------------- ", titulo[1], " -------------------")
+    escreval("Seu trabalho é escrever letras em um computador.")
+    escreval("  Quanto mais letras, mais moedas você ganha.")
+    escreval("")
+    escreval("--  Digite '", comandos[1], "' para abrir este menu.")
+    escreval("--  Digite '", comandos[2], "' para abrir a loja.")
+    escreval("--  Digite '", comandos[5], "' para sair.")
+    escreval("--  Digite '", comandos[3], "' para limpar.")
+    se (textocomprado = verdadeiro) entao
+      escreval("--  Digite '", comandos[4], "' para personalizar texto.")
+    fimse
+    se (comandocomprado = verdadeiro) entao
+      escreval("-- Digite '", comandos[6], "' para personalizar comandos.")
+    fimse
+    escreval("Continuar [Enter]: ")
+    pausa
+    limpatela
+fimprocedimento
+
+procedimento texto()
+  inicio
+    repita
+      limpatela
+      escreval("--------- ", titulo[4], " ---------")
+      escreval("Que texto você deseja personalizar?")
+      se (titulo[1] = "TRABALHO") entao
+        escreval("[1] TRABALHO")
+      senao
+        escreval("[1] ", titulo[1], " (TRABALHO)")
+      fimse
+      se (titulo[2] = "MOEDAS") entao
+        escreval("[2] MOEDAS")
+      senao
+        escreval("[2] ", titulo[2], " (MOEDAS)")
+      fimse
+      se (titulo[3] = "LOJA") entao
+        escreval("[3] LOJA")
+      senao
+        escreval("[3] ", titulo[3], " (LOJA)")
+      fimse
+      se (titulo[4] = "TEXTO") entao
+        escreval("[4] TEXTO")
+      senao
+        escreval("[4] ", titulo[4], " (TEXTO)")
+      fimse
+      escreval("[5] Sair")
+      escreval("Opção: ")
+      leia(opcao)
+      escolha opcao
+        caso 1
+          se (titulo[1] = "TRABALHO") entao
+            escreval("Texto para TRABALHO: ")
+          senao
+            escreval("Texto para ", titulo[1], " (TRABALHO): ")
+          fimse
+          leia(titulo[1])
+          escreval("Mudado para ", titulo[1])
+          enter()
+        caso 2
+          se (titulo[2] = "MOEDAS") entao
+            escreval("Texto para MOEDAS: ")
+          senao
+            escreval("Texto para ", titulo[2], " (MOEDAS): ")
+          fimse
+          leia(titulo[2])
+          escreval("Mudado para ", titulo[2])
+          enter()
+        caso 3
+          se (titulo[3] = "LOJA") entao
+            escreval("Texto para LOJA: ")
+          senao
+            escreval("Texto para ", titulo[3], " (LOJA): ")
+          fimse
+          leia(titulo[3])
+          escreval("Mudado para ", titulo[3])
+          enter()
+        caso 4
+          se (titulo[4] = "TEXTO") entao
+            escreval("Texto para TEXTO: ")
+          senao
+            escreval("Texto para ", titulo[4], " (TEXTO): ")
+          fimse
+          leia(titulo[4])
+          escreval("Mudado para ", titulo[4])
+          enter()
+      fimescolha
+      limpatela
+    ate (opcao = 1 ou opcao = 2 ou opcao = 3 ou opcao = 4 ou opcao = 5)
+fimprocedimento
+
+procedimento comando()
+  inicio
+    repita
+      limpatela
+      escreval("--------- ", titulo[5], " ---------")
+      escreval("Que comando você deseja personalizar?")
+      se (comandos[1] = "TRABALHO") entao
+        escreval("[1] TRABALHO")
+      senao
+        escreval("[1] ", comandos[1], " (TRABALHO)")
+      fimse
+      se (comandos[2] = "LOJA") entao
+        escreval("[2] LOJA")
+      senao
+        escreval("[2] ", comandos[2], " (LOJA)")
+      fimse
+      se (comandos[3] = "LIMPAR") entao
+        escreval("[3] LIMPAR")
+      senao
+        escreval("[3] ", comandos[3], " (LIMPAR)")
+      fimse
+      se (comandos[4] = "TEXTO") entao
+        escreval("[4] TEXTO")
+      senao
+        escreval("[4] ", comandos[4], " (TEXTO)")
+      fimse
+      se (comandos[5] = "SAIR") entao
+        escreval("[5] SAIR")
+      senao
+        escreval("[5] ", comandos[5], " (SAIR)")
+      fimse
+      se (comandos[6] = "COMANDO") entao
+        escreval("[6] COMANDO")
+      senao
+        escreval("[6] ", comandos[6], " (COMANDO)")
+      fimse
+      escreval("[7] Sair")
+      leia(opcao)
+      escolha opcao
+        caso 1
+          se (comandos[1] = "TRABALHO") entao
+            escreval("Comando para TRABALHO: ")
+          senao
+            escreval("Comando para ", comandos[1], " (TRABALHO): ")
+          fimse
+          leia(comandos[1])
+          escreval("Mudado para ", comandos[1])
+          enter()
+        caso 2
+          se (comandos[2] = "LOJA") entao
+            escreval("Comando para LOJA: ")
+          senao
+            escreval("Comando para ", comandos[1], " (LOJA): ")
+          fimse
+          leia(comandos[2])
+          escreval("Mudado para ", comandos[2])
+          enter()
+        caso 3
+          se (comandos[3] = "LIMPAR") entao
+            escreval("Comando para LIMPAR: ")
+          senao
+            escreval("Comando para ", comandos[3], " (LIMPAR): ")
+          fimse
+          leia(comandos[3])
+          escreval("Mudado para ", comandos[3])
+          enter()
+        caso 4
+          se (comandos[4] = "TEXTO") entao
+            escreval("Comando para TEXTO: ")
+          senao
+            escreval("Comando para ", comandos[3], " (TEXTO): ")
+          fimse
+          leia(comandos[4])
+          escreval("Mudado para ", comandos[4])
+          enter()
+        caso 5
+          se (comandos[5] = "SAIR") entao
+            escreval("Comando para SAIR: ")
+          senao
+            escreval("Comando para ", comandos[5], " (SAIR): ")
+          fimse
+          leia(comandos[5])
+          escreval("Mudado para ", comandos[5])
+          enter()
+        caso 6
+          se (comandos[6] = "COMANDOS") entao
+            escreval("Comando para COMANDOS: ")
+          senao
+            escreval("Comando para ", comandos[6], " (COMANDOS): ")
+          fimse
+          leia(comandos[6])
+          escreval("Mudado para ", comandos[6])
+          enter()
+      fimescolha
+      limpatela
+    ate (opcao = 1 ou opcao = 2 ou opcao = 3 ou opcao = 4 ou opcao = 5 ou opcao = 6 ou opcao = 7)
+fimprocedimento
+
+inicio
+  titulo[1] <- "TRABALHO"
+  titulo[2] <- "MOEDAS"
+  titulo[3] <- "LOJA"
+  titulo[4] <- "TEXTO"
+  titulo[5] <- "COMANDO"
+  comandos[1] <- "TRABALHO"
+  comandos[2] <- "LOJA"
+  comandos[3] <- "LIMPAR"
+  comandos[4] <- "TEXTO"
+  comandos[5] <- "SAIR"
+  comandos[6] <- "COMANDO"
+  trabalho()
+  repita
+    escreval("---------- ", titulo[2], ": ", moedas, " ----------")
+    escreval("~$ ")
+    leia(escreva_letras)
+    se (escreva_letras <> comandos[2]) e (escreva_letras <> comandos[3]) e (escreva_letras <> comandos[1]) entao
+      moedas <- moedas + compr(escreva_letras)
+    fimse
+    se (escreva_letras = comandos[3]) e (limparcomprado = falso) entao
+      limpatela
+    senao
+      se (limparcomprado = verdadeiro) e (desativar <> "S") entao
+        limpatela
+      fimse
+    fimse
+    se (escreva_letras = comandos[2]) entao
+      loja()
+    senao
+      se (escreva_letras = comandos[3]) e (limparcomprado = verdadeiro) e (desativar <> "S") entao
+        escreval("Deseja desativar a limpeza automatica? [S/N]: ")
+        leia(desativar)
+      senao
+        se (escreva_letras = comandos[3]) e (limparcomprado = verdadeiro) e (desativar = "S") entao
+          escreval("Deseja ativar a limpeza automatica? [S/N]: ")
+          leia(desativar)
+          se (desativar = "S") entao
+            desativar <- "N"
+          senao
+            desativar <- "S"
+          fimse
+        senao
+          se (escreva_letras = comandos[1]) entao
+            trabalho()
+          senao
+            se (escreva_letras = comandos[4]) e (textocomprado = verdadeiro) entao
+              texto()
+            senao
+              se (escreva_letras = comandos[6]) e (comandocomprado = verdadeiro) entao
+                comando()
+              fimse
+            fimse
+          fimse
+        fimse
+      fimse
+    fimse
+  ate (escreva_letras = "SAIR")
+fimalgoritmo
